@@ -15,22 +15,20 @@ def loging(request):
 	email = request.POST.get('email')
 	password = request.POST.get('password')
 	user = None
-
 	if request.method == "POST":
-		if user is not None and user.is_authenticated:
-			return redirect('home')
-
 		try:
 			user = Test.objects.get(email=email)
+			print(user)
 		except Test.DoesNotExist:
 			user = None
-
+			print(user)
 		if user is not None and check_password(password, user.password):
+			print(user)
 			# login(request, user)
 			return redirect('home')
 		else:
 			messages.error(request, 'Invalid email or password')
-			return render(request, 'Auth.login.html')
+			return render(request, 'Auth/login.html')
 
 
 

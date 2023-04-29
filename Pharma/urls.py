@@ -26,4 +26,9 @@ urlpatterns = [
     path('logout', auth.logout, name="logout"),
     path('home', home.Home.home, name="home"),
     path('signup', auth.signup, name="signup"),
+    path('product', home.Home.product, name="product"),
+    path('add-form', home.Home.add_form, name='add-form'),
+    path('edit-form/<int:id>', home.Home.edit_form, name='edit-form'),
+    path('add-product', home.Home.add_product, name='add-product'),
+    path('edit-product', home.Home.edit_product, name='edit-product')
 ]
